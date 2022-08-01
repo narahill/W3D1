@@ -33,6 +33,20 @@ class Array
         return true
     end 
 
+    #self [1, 2, 3, [4, [5, 6]], [[[7]], 8]]
+    def my_flatten
 
+        flattened = []
+
+        self.my_each do |sub_self|
+            if sub_self.is_a?(Array)
+                flattened += sub_self.my_flatten
+            else
+                flattened << sub_self
+            end
+        end
+
+        return flattened
+    end
 
 end 
